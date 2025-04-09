@@ -35,4 +35,13 @@ public class MainController {
         return ResponseEntity.ok("first");
     }
 
+    @GetMapping("/second")
+    public ResponseEntity<String> secondApi(@RequestParam("value") String value) throws Exception {
+
+        jobLauncher.run(jobRegistry.getJob("secondJob"), new JobParametersBuilder()
+                .addString("date", value)
+                .toJobParameters());
+
+        return ResponseEntity.ok("second");
+    }
 }
