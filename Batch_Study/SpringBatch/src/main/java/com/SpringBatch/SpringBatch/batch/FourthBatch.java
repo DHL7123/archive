@@ -11,7 +11,6 @@ import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.item.ItemStreamWriter;
 import org.springframework.batch.item.data.RepositoryItemReader;
 import org.springframework.batch.item.data.builder.RepositoryItemReaderBuilder;
@@ -26,36 +25,36 @@ import java.util.Map;
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
-public class ForthBatch {
+public class FourthBatch {
 
     private final JobRepository jobRepository;
     private final PlatformTransactionManager platformTransactionManager;
     private final BeforeRepository beforeRepository;
 
     @Bean
-    public Job forthJob() {
+    public Job fourthJob() {
 
-        log.info("Forth Job Start");
-        return new JobBuilder("forthJob", jobRepository)
-                .start(forthStep())
+        log.info("FourthJob Job Start");
+        return new JobBuilder("fourthJob", jobRepository)
+                .start(fourthStep())
                 .build();
     }
 
     @Bean
-    public Step forthStep() {
+    public Step fourthStep() {
 
-        log.info("Forth Step Start");
+        log.info("fourth Step Start");
 
-        return new StepBuilder("forthStep", jobRepository)
+        return new StepBuilder("fourthStep", jobRepository)
                 .<BeforeEntity, BeforeEntity>chunk(10, platformTransactionManager)
-                .reader(forthBeforeReader())
-                .processor(forthProcessor())
+                .reader(fourthBeforeReader())
+                .processor(fourthProcessor())
                 .writer(excelWriter())
                 .build();
     }
 
     @Bean
-    public RepositoryItemReader<BeforeEntity> forthBeforeReader() {
+    public RepositoryItemReader<BeforeEntity> fourthBeforeReader() {
 
         return new RepositoryItemReaderBuilder<BeforeEntity>()
                 .name("beforeReader")
@@ -68,7 +67,7 @@ public class ForthBatch {
     }
 
     @Bean
-    public ItemProcessor<BeforeEntity, BeforeEntity> forthProcessor() {
+    public ItemProcessor<BeforeEntity, BeforeEntity> fourthProcessor() {
 
         return item -> item;
     }

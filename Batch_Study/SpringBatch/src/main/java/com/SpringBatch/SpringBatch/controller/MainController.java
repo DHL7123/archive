@@ -56,4 +56,14 @@ public class MainController {
 
         return ResponseEntity.ok("third batch");
     }
+
+    @GetMapping("/fourth")
+    public ResponseEntity<String> fourthApi(@RequestParam("value") String value) throws Exception {
+
+        jobLauncher.run(jobRegistry.getJob("fourthJob"), new JobParametersBuilder()
+                .addString("date", value)
+                .toJobParameters());
+
+        return ResponseEntity.ok("fourth batch");
+    }
 }
