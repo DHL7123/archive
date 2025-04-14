@@ -4,6 +4,7 @@ package com.SpringBatch.SpringBatch.batch;
 import com.SpringBatch.SpringBatch.entity.AfterEntity;
 import com.SpringBatch.SpringBatch.repository.AfterRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -21,6 +22,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @RequiredArgsConstructor
+@Slf4j
 public class ThirdBatch {
 
     private final JobRepository jobRepository;
@@ -33,6 +35,7 @@ public class ThirdBatch {
     @Bean
     public Job thirdJob() {
 
+        log.info("Third Job Start");
         return  new JobBuilder("thirdJob", jobRepository)
                 .start(thirdStep())
                 .build();
