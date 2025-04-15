@@ -40,7 +40,8 @@ public class ExcelRowReader implements ItemStreamReader<Row> {
                 rowCursor.next();
             }
         } catch (IOException e) {
-            throw new ItemStreamException(e);
+            throw
+                    new ItemStreamException(e);
         }
 
     }
