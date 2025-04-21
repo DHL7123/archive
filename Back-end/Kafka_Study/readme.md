@@ -19,6 +19,8 @@ Kafka 도입 이전에는 서비스 간 통신이 end-to-end 방식으로 이루
 - **통신 관리의 어려움**: 서비스가 커질수록 통신 방식의 유지보수가 어려워짐.
 - **데이터 파이프라인 확장의 어려움**: 각 파이프라인의 데이터 포맷과 처리 방식이 달라 확장성이 부족함.
 
+![LinkedinB](https://cdn.confluent.io/wp-content/uploads/data-flow-ugly-1-768x427.png)  
+
 ### Kafka 도입 효과
 
 Kafka를 도입함으로써 다음과 같은 효과를 얻을 수 있습니다:
@@ -27,6 +29,7 @@ Kafka를 도입함으로써 다음과 같은 효과를 얻을 수 있습니다:
 - **유연성 향상**: 특정 서비스 장애가 전체로 번지지 않도록 방지합니다.
 - **확장성 개선**: 데이터 파이프라인의 확장과 유지보수가 용이해집니다.
 
+![LinkedinA](https://cdn.confluent.io/wp-content/uploads/data-flow-768x584.png)  
 ---
 
 ## 사용 기술 및 버전
@@ -52,4 +55,9 @@ Kafka를 도입함으로써 다음과 같은 효과를 얻을 수 있습니다:
 | **Batch Listener / Retry 설정 실습** | 메시지 배치 처리 및 재시도 로직 구현. |
 | **DTO ↔ JSON 직렬화/역직렬화 커스터마이징** | 메시지 포맷을 JSON으로 변환 및 처리. |
 | **Listener concurrency, 파티션 다루기** | 병렬 처리 및 파티션 관리 실습. |
-| **Kafka에 메시지 누락/중복 상황 실험 & 로그 분석** | 메시지 유실 및 중복 처리 시나리오 테스트. |
+| **Kafka에 메시지 누락/중복 상황 실험 & 로그 분석** | 메시지 유실 및 중복 처리 시나리오 테스트. | 
+
+
+## 참고 자료
+- [Kafka 공식문서](https://kafka.apache.org/documentation/)
+- [confluent](https://www.confluent.io/blog/event-streaming-platform-1/)
